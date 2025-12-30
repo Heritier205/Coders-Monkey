@@ -1,3 +1,4 @@
+import { Seo } from "@/ui/components/seo";
 import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({
@@ -12,6 +13,10 @@ const geistMono = Geist_Mono({
 
 export default function Home() {
   return (
-    <h1 className="text-red-600">Hello world</h1>
+    <>
+      <Seo title="Coders Monkeys" description="Description..."/>
+      <h1>Hello world</h1>
+      <h2>Home page</h2>
+    </>
   );
 }
