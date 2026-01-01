@@ -95,7 +95,7 @@
     --text-caption4--font-weight: 400;
 
     /* colors */
-    --color-white: #fffff;
+    --color-white: #ffffff;
     /* primary colors */
     --color-primary-200: #efeffc;
     --color-primary-300: #cfd0f6;
@@ -119,6 +119,7 @@
     --color-gray-800: #333333;
     --color-gray: #1D1D1D;
 
-
+    /* unique border radius dans le systeme */
+    --radius: 10px; 
 
 }
