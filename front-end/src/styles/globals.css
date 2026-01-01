@@ -1,8 +1,124 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 
-@layer base {
-    html {
-        font-family: inter, system-ui, sans-serif;
-    }
+@theme {
+    --font-sans: "Inter", sans-serif;
+
+    /* Style for 8xl text */
+    --text-8xl: 120px;
+    --text-8xl--line-height: 120px;
+    --text-8xl--letter-spacing: -8px;
+    --text-8xl--font-weight: 500;
+
+    /* style for 7xl text */
+    --text-7xl: 72px;
+    --text-7xl--line-height: 80px;
+    --text-7xl--letter-spacing: -4.5px;
+    --text-7xl--font-weight: 600;
+
+    /* style for 6xl text */
+    --text-6xl: 55px;
+    --text-6xl--line-height: 60px;
+    --text-6xl--letter-spacing: -2.5px;
+    --text-6xl--font-weight: 500;
+
+    /* style for 5xl text */
+    --text-5xl: 48px;
+    --text-5xl--line-height: 54px;
+    --text-5xl--letter-spacing: -1.6px;
+    --text-5xl--font-weight: 500;
+
+    /* style for 4xl text */
+    --text-4xl: 36px;
+    --text-4xl--line-height: 44px;
+    --text-4xl--letter-spacing: -1.2px;
+    --text-4xl--font-weight: 500;
+
+    /* style for 3xl text */
+    --text-3xl: 28px;
+    --text-3xl--line-height: 34px;  
+    --text-3xl--letter-spacing: -0.8px;
+    --text-3xl--font-weight: 500;
+
+    /* style for 2xl text */
+    --text-2xl: 24px;
+    --text-2xl--line-height: 30px;  
+    --text-2xl--letter-spacing: -1px;
+    --text-2xl--font-weight: 400;
+
+    /* style for xl text */
+    --text-xl: 24px;
+    --text-xl--line-height: 30px;
+    --text-xl--letter-spacing: -1px;
+    --text-xl--font-weight: 400;
+
+    /* style for lg text */
+    --text-lg: 21px;
+    --text-lg--line-height: 30px;
+    --text-lg--letter-spacing: -0.8px;
+    --text-lg--font-weight: 400;
+
+    /* style for base text */
+    --text-base: 17px;
+    --text-base--line-height: 25px;
+    --text-base--letter-spacing: -0.699px;
+    --text-base--font-weight: 400;
+
+    /* style for sm text */
+    --text-sm: 15px;
+    --text-sm--line-height: 23px;
+    --text-sm--letter-spacing: -0.6px;
+    --text-sm--font-weight: 400;
+
+    /* style for caption1 text */ 
+    --text-caption1: 20px;
+    --text-caption1--line-height: 24px;
+    --text-caption1--letter-spacing: -0.6px;
+    --text-caption1--font-weight: 400;
+
+    /* style for caption2 text */
+    --text-caption2: 18px;
+    --text-caption2--line-height: 20px;
+    --text-caption2--letter-spacing: -0.3px;
+    --text-caption2--font-weight: 400;
+
+    /* style for caption3 text */
+    --text-caption3: 16px;
+    --text-caption3--line-height: 18px;
+    --text-caption3--letter-spacing: -0.3px;
+    --text-caption3--font-weight: 400;
+
+    /* style for caption4 text */
+    --text-caption4: 13px;
+    --text-caption4--line-height: 15px;
+    --text-caption4--letter-spacing: -0.2px;
+    --text-caption4--font-weight: 400;
+
+    /* colors */
+    --color-white: #fffff;
+    /* primary colors */
+    --color-primary-200: #efeffc;
+    --color-primary-300: #cfd0f6;
+    --color-primary-400: #7f81e8;
+    --color-primary: #5f62e2;
+    --color-primary-600: #5658cb;
+    
+
+    /* secondary colors */
+    --color-secondary-200: #eaf8f4;
+    --color-secondary-300: #bfe9de;
+    --color-secondary-400: #56c4a7;
+    --color-secondary: #2ab691;
+    --color-secondary-600: #26a482;
+   
+    /* gray colors */
+    --color-gray-400: #f2f2f2;
+    --color-gray-500: #e5e5e5;
+    --color-gray-600: #b2b2b2;
+    --color-gray-700: #808080;
+    --color-gray-800: #333333;
+    --color-gray: #1D1D1D;
+
+
+
 }
