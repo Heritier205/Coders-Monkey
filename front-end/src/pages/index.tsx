@@ -16,7 +16,11 @@ export default function Home() {
   return (
     <>
       <Seo title="Coders Monkeys" description="Description..." />
-      <Typography variant="h1" component="h1">Coders Monkeys web app</Typography>
+      <div className="space-y-4">
+        <Typography variant="h1" component="h1">
+          Coders Monkeys web app
+        </Typography>
+      </div>
     </>
   );
 }
