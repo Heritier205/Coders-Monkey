@@ -1,9 +1,11 @@
+import { IconProps } from "@/types/iconProps";
 import clsx from "clsx";
+import { Icon } from "next/dist/lib/metadata/types/metadata-types";
 
 interface Props {
   size?: "small" | "medium" | "large";
   variant?: "accent" | "secondary" | "outline" | "disabled" | "ico";
-  icon?: any;
+  icon?: IconProps;
   iconTheme?: "accent" | "secondary" | "gray";
   iconPosition?: "left" | "right";
   disabled?: boolean;
@@ -30,28 +32,56 @@ export const Button = ({
       variantStyle = "bg-primary hover:bg-primary-400 text-white rounded";
       break;
     case "secondary":
-      variantStyle = "bg-primary-200 hover:bg-primary-300/50 text-primary rounded";
+      variantStyle =
+        "bg-primary-200 hover:bg-primary-300/50 text-primary rounded";
       break;
     case "outline":
-      variantStyle = "bg-white hover:bg-gray-400/50 border border-gray-500 text-gray-900 rounded";
+      variantStyle =
+        "bg-white hover:bg-gray-400/50 border border-gray-500 text-gray-900 rounded";
       break;
     case "disabled":
-      variantStyle = "bg-gray-400 border border-gray-500 text-gray-600 rounded cursor-not-allowed";
+      variantStyle =
+        "bg-gray-400 border border-gray-500 text-gray-600 rounded cursor-not-allowed";
       break;
     case "ico":
-      variantStyle = "";
+      if (iconTheme === "accent") {
+        variantStyle =
+          "bg-primary hover:bg-primary-400 text-white rounded-full";
+      }
+      if (iconTheme === "secondary") {
+        variantStyle =
+          "bg-primary-200 hover:bg-primary-300/50 text-primary rounded-full";
+      }
+      if (iconTheme === "gray") {
+        variantStyle = "bg-gray-700 hover:bg-gray-600 text-white rounded-full";
+      }
       break;
   }
 
   switch (size) {
     case "small":
-      sizeStyle = "text-caption3 font-medium px-[14px] py-[12px]";
+      sizeStyle = `text-caption3 font-medium ${
+        icon && variant === "ico"
+          ? "flex items-center justify-center w-[40px] h-[40px]"
+          : "px-[14px] py-[10px]"
+      }`;
+      iconSize = 18;
       break;
     case "medium": // Default
-      sizeStyle = "text-caption2 font-medium px-[18px] py-[15px]";
+      sizeStyle = `text-caption2 font-medium ${
+        icon && variant === "ico"
+          ? "flex items-center justify-center w-[50px] h-[50px]"
+          : "px-[18px] py-[15px]"
+      }`;
+      iconSize = 20;
       break;
     case "large":
-      sizeStyle = "text-caption1 font-medium px-[22px] py-[18px]"; 
+      sizeStyle = `text-caption1 font-medium ${
+        icon && variant === "ico"
+          ? "flex items-center justify-center w-[60px] h-[60px]"
+          : "px-[22px] py-[18px]"
+      }`;
+      iconSize = 24;
       break;
   }
 
@@ -63,7 +93,15 @@ export const Button = ({
         onClick={() => console.log("click")}
         disabled={disabled}
       >
-        {children}
+        {icon && variant === "ico" ? (
+          <icon.icon size={iconSize} />
+        ) : (
+          <div className={clsx(icon && iconPosition && "flex gap-1 items-center")}>
+            {icon && iconPosition === "left" && <icon.icon size={iconSize} />}
+            {children}
+            {icon && iconPosition === "right" && <icon.icon size={iconSize} />}
+          </div>
+        )}
       </button>
     </>
   );

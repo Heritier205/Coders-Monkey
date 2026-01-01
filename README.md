@@ -84,4 +84,11 @@ du coup j'ai decouvert comment lire la doc de tailwind pour faire les autres sur
 
     > dans mon cas le tutoriel utilise la `V3` de `tailwind` alors que actu on est sur la `V4` et carrement beaucoup de choses on changé ce qui m'a fait perdre un peu de temps avec copilot jusqu'a ce que je ne decide d'aller plutot lire la docs de tailwind `4.x.x` (en tout cas je m'en suis sortis) 
 
-> On continue pour l'aventure ...
+- On a continue apres les Typography par les types de bouttons du systeme a savoir les bouttons avec du `texte simple` , `icon` puis `texte et icon` avec chacun ses variants propre 
+    >cette partie nous a fait decouvrir la librairie `react-icons` installé avec la commande 
+    ```bash 
+        npm i react-icons
+    ```
+    bien sur il faut visiter le site pour voir le nom des divers icons
+
+> On continue l'aventure ...
