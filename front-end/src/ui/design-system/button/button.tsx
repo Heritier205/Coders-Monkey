@@ -23,8 +23,8 @@ export const Button = ({
   isLoading,
   children,
 }: Props) => {
-  let variantStyle: String = "",
-    sizeStyle: String = "",
+  let variantStyle: string = "",
+    sizeStyle: string = "",
     iconSize: number = 0;
 
   switch (variant) {
@@ -105,7 +105,7 @@ export const Button = ({
           </div>
         )}
         <div
-        className="invisible"
+        className={clsx(isLoading && "invisible")}
         >
           {icon && variant === "ico" ? (
             <icon.icon size={iconSize} />

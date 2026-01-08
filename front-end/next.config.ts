@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   reactStrictMode: true,
   output: "export", // par hériter
+  images: {
+    unoptimized: true
+  }
 };
 
 export default nextConfig;
