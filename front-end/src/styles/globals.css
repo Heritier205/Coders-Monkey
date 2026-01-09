@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @theme {
-    --font-sans: "Inter", sans-serif;
+    /* --font-sans:  "Inter", sans-serif; */
 
     /* Style for 8xl text */
     --text-8xl: 120px;
@@ -100,7 +100,7 @@
     --color-primary-200: #efeffc;
     --color-primary-300: #cfd0f6;
     --color-primary-400: #7f81e8;
-    --color-primary: #5f62e2;
+    --color-primary: #5f61e2;
     --color-primary-600: #5658cb;
     
 
@@ -122,4 +122,12 @@
     /* unique border radius dans le systeme */
     --radius: 10px; 
 
+}
+
+a:hover {
+    @apply text-primary;
+}
+
+.animate, a, a:hover, Button {
+    transition: all 0.3s ease-in-out;
 }
