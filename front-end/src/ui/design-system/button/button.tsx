@@ -60,27 +60,24 @@ export const Button = ({
 
   switch (size) {
     case "small":
-      sizeStyle = `text-caption3 font-medium ${
-        icon && variant === "ico"
-          ? "flex items-center justify-center w-[40px] h-[40px]"
-          : "px-[14px] py-[10px]"
-      }`;
+      sizeStyle = `text-caption3 font-medium ${icon && variant === "ico"
+        ? "flex items-center justify-center w-[40px] h-[40px]"
+        : "px-[14px] py-[10px]"
+        }`;
       iconSize = 18;
       break;
     case "medium": // Default
-      sizeStyle = `text-caption2 font-medium ${
-        icon && variant === "ico"
-          ? "flex items-center justify-center w-[50px] h-[50px]"
-          : "px-[18px] py-[15px]"
-      }`;
+      sizeStyle = `text-caption2 font-medium ${icon && variant === "ico"
+        ? "flex items-center justify-center w-[50px] h-[50px]"
+        : "px-[18px] py-[15px]"
+        }`;
       iconSize = 20;
       break;
     case "large":
-      sizeStyle = `text-caption1 font-medium ${
-        icon && variant === "ico"
-          ? "flex items-center justify-center w-[60px] h-[60px]"
-          : "px-[22px] py-[18px]"
-      }`;
+      sizeStyle = `text-caption1 font-medium ${icon && variant === "ico"
+        ? "flex items-center justify-center w-[60px] h-[60px]"
+        : "px-[22px] py-[18px]"
+        }`;
       iconSize = 24;
       break;
   }
@@ -101,11 +98,14 @@ export const Button = ({
       >
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <Spiner size="small" variant={(variant === "accent" || variant === "ico")? "white" : "primary"}/>
+            <Spiner
+              size="small"
+              variant={(variant === "accent" || (variant === "ico" && ["accent", "gray"].includes(iconTheme))) ? "white" : "primary"}
+            />
           </div>
         )}
         <div
-        className={clsx(isLoading && "invisible")}
+          className={clsx(isLoading && "invisible")}
         >
           {icon && variant === "ico" ? (
             <icon.icon size={iconSize} />
