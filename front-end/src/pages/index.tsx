@@ -1,4 +1,5 @@
 import { Container } from "@/ui/components/container/container";
+import { Footer } from "@/ui/components/navigation/footer";
 import { Navigation } from "@/ui/components/navigation/navigation";
 import { Seo } from "@/ui/components/seo/seo";
 import { Avatar } from "@/ui/design-system/avatar/avatar";
@@ -15,5 +16,6 @@ export default function Home() {
     <>
       <Seo title="Coders Monkeys" description="Description..." />
       <Navigation />
+      <Footer/>
     </>)
 }
