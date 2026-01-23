@@ -1,14 +1,18 @@
 import { Typography } from "@/ui/design-system/typography/typography"
 import { Container } from "../container/container"
 import Image from "next/image"
-import { fotterApplicationLinks } from "./app-links";
 import { v4 as uuidv4 } from 'uuid';
 import { ActiveLink } from "./active-links";
+import { FooterLinks } from "@/types/app-links";
+import { footerLinks } from "./app-links";
+import { LinkTypes } from "@/lib/link-type";
 
 export const Footer = () => {
 
     const currentYear = new Date().getFullYear();
-
+    const footerNavigationList = footerLinks.map((coloneLinks) => (
+        <FooterLink key={uuidv4()} data={coloneLinks}/>
+    ))
 
     return (
         <div className="bg-gray">
@@ -36,8 +40,8 @@ export const Footer = () => {
                         />
                     </a>
                 </div>
-                <div className="">
-                    <FooterLink />
+                <div className="flex gap-7">
+                    {footerNavigationList}
                 </div>
             </Container>
             <Container className="pt-9 pb-11 space-y-11">
@@ -59,17 +63,23 @@ export const Footer = () => {
 };
 
 
-const FooterLink = () => {
-    const linkList = fotterApplicationLinks.map((link) => (
+
+interface footerLinkProps {
+    data: FooterLinks;
+}
+
+
+const FooterLink = ({ data }: footerLinkProps) => {
+    const linkList = data.links.map((link) => (
         <div key={uuidv4()}>
-            {link.type === "internal" &&
+            {link.type === LinkTypes.INTERNAL &&
                 <ActiveLink
                     key={uuidv4()}
                     href={link.baseUrl}
                 >{link.label}</ActiveLink>
             }
 
-            {link.type === "external" &&
+            {link.type === LinkTypes.EXTERNAL  &&
                 <a
                     href={link.baseUrl}
                     target="_blank"
@@ -80,13 +90,13 @@ const FooterLink = () => {
     ))
 
     return (
-        <div className="min-w-47.5]">
+        <div className="min-w-47.5">
             <Typography
                 theme="white"
                 variant="caption2"
                 weight="medium"
                 className="pb-5">
-                Titre
+                {data.label}
             </Typography>
             <Typography
                 theme="gray"
