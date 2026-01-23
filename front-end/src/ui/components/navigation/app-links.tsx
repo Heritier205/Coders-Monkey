@@ -1,11 +1,11 @@
 import { AppLinks } from "@/types/app-links";
 
-export const fotterApplicationLinks: AppLinks[] = [
+const footterApplicationLinks: AppLinks[] = [
     {
         label: "Acceuil",
         baseUrl: "/",
         type: "internal"
-    }, 
+    },
     {
         label: "Projets",
         baseUrl: "/#",
@@ -23,12 +23,12 @@ export const fotterApplicationLinks: AppLinks[] = [
     },
 ]
 
-const fotterUsersLinks: AppLinks[] = [
+const footerUsersLinks: AppLinks[] = [
     {
         label: "Mon espace",
         baseUrl: "/",
         type: "internal"
-    }, 
+    },
     {
         label: "Connexion",
         baseUrl: "/#",
@@ -46,12 +46,12 @@ const fotterUsersLinks: AppLinks[] = [
     },
 ]
 
-const fotterInformationsLinks: AppLinks[] = [
+const footerInformationsLinks: AppLinks[] = [
     {
         label: "CGU",
         baseUrl: "/",
         type: "internal"
-    }, 
+    },
     {
         label: "Confidentialité",
         baseUrl: "/#",
@@ -69,12 +69,12 @@ const fotterInformationsLinks: AppLinks[] = [
     },
 ]
 
-const fotterSocialNetworksLinks: AppLinks[] = [
+const footerSocialNetworksLinks: AppLinks[] = [
     {
         label: "Youtube",
         baseUrl: "https://youtube.com/@remotemonkey",
         type: "external"
-    }, 
+    },
     {
         label: "Linkedin",
         baseUrl: "/#",
@@ -84,5 +84,25 @@ const fotterSocialNetworksLinks: AppLinks[] = [
         label: "Stack",
         baseUrl: "/#",
         type: "external"
+    }
+]
+
+
+export const footerLinks = [
+    {
+        label: "App",
+        links: footterApplicationLinks
+    },
+    {
+        label: "Utilisateur",
+        links: footerUsersLinks
+    },
+    {
+        label: "Information",
+        links: footerInformationsLinks
+    },
+    {
+        label: "Reseaux",
+        links: footerSocialNetworksLinks
     }
 ]
