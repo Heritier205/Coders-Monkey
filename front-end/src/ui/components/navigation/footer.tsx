@@ -6,6 +6,7 @@ import { ActiveLink } from "./active-links";
 import { FooterLinks } from "@/types/app-links";
 import { footerLinks } from "./app-links";
 import { LinkTypes } from "@/lib/link-type";
+import { SocialNetworkButtons } from "./socianl-network-buttons";
 
 export const Footer = () => {
 
@@ -54,9 +55,12 @@ export const Footer = () => {
                         <a href="" target="_blank"> Arnaud desportes </a>
                         - Remote monkey SASU
                     </Typography>
-                    <div className=""></div>
+                    <div className="">
+                        <SocialNetworkButtons theme="gray"/>
+                    </div>
 
                 </div>
+
             </Container>
         </div>
     )
