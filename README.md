@@ -2,6 +2,8 @@
 
 > Application web complète développée avec Next.js pour pratiquer le routing, le styling et la gestion de composants.
 
+Lien de l'app : https://coders-monkeys-ff567.firebaseapp.com/
+
 ---
 
 ## 🎯 Objectifs du projet
