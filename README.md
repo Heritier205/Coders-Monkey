@@ -1,135 +1,112 @@
-# Coders Monkeys
+# 🐒 Coders Monkeys
 
-> Application web complète développée avec Next.js pour pratiquer le routing, le styling et la gestion de composants.
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-16.1-black?style=for-the-badge&logo=nextdotjs" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-v4.0-38B2AC?style=for-the-badge&logo=tailwind-css" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Firebase-Hosting-FFCA28?style=for-the-badge&logo=firebase" alt="Firebase" />
+</p>
 
-Lien de l'app : https://coders-monkeys-ff567.firebaseapp.com/
+> **Coders Monkeys** est une application web complète développée avec **Next.js**, **TypeScript** et **Tailwind CSS v4**. Ce projet met en valeur la conception d'un **UI Design System réutilisable**, l'implémentation d'un routage dynamique et la mise en place d'une architecture frontend propre et maintenable.
 
----
-
-## 🎯 Objectifs du projet
-
-L’objectif principal de ce projet était de :
-
-- comprendre le fonctionnement de Next.js  
-- pratiquer TypeScript  
-- structurer un projet frontend proprement  
-- pratiquer Tailwind CSS  
-- utiliser Git, GitHub et GitLab correctement  
+🌐 **Démo en ligne** : [https://coders-monkeys-ff567.firebaseapp.com/](https://coders-monkeys-ff567.firebaseapp.com/)
 
 ---
 
-## 🛠️ Technologies utilisées (liste évolutive)
+## 🎯 Objectifs du Projet
 
-- Next.js  
-- React  
-- TypeScript  
-- CSS / Tailwind CSS  
-- Git, GitHub & GitLab  
+- **Architecture & Clean Code** : Structurer une application Next.js avec une séparation claire des responsabilités (Atomes, Composants, Layouts, Types).
+- **Design System sur-mesure** : Implémenter la méthodologie Atomic Design (Typographies, Boutons multi-variants, Avatars, Spinners).
+- **Typage Strict (TypeScript)** : Éliminer les types `any` et sécuriser les contrats d'interfaces et d'événements.
+- **Tailwind CSS v4 & Atomic Utility Styling** : Exploiter la directive `@theme` et les surcharges CSS avancées.
+- **Intégration CI/CD & Déploiement** : Générer un export statique `output: export` et déployer automatiquement sur **Firebase Hosting**.
 
 ---
 
-# 🐒 Mes aventures avec ce projet
+## 🏗️ Architecture du Projet
 
-## 🚀 Initialisation du projet
-
-L'initialisation d'un projet **Next.js** se fait avec la commande :
-
-```bash
-npx create-next-app@latest front-end --no-app
+```text
+codersMonkeys/
+├── public/                 # Assets statiques (images, logos, SVG)
+├── src/
+│   ├── config/             # Configurations externes (Firebase)
+│   ├── lib/                # Fonctions utilitaires, helpers & enums de types
+│   ├── pages/              # Routes Next.js (index, design-system, _app, _document)
+│   ├── styles/             # Styles globaux & tokens Tailwind CSS v4 (@theme)
+│   ├── types/              # Interfaces et types TypeScript réutilisables
+│   └── ui/
+│       ├── components/     # Composants d'interface (Container, Navigation, Footer, SEO)
+│       └── design-system/  # Atomes UI (Button, Typography, Spinner, Avatar, Logo)
+├── firebase.json           # Configuration d'hébergement Firebase
+├── next.config.ts          # Configuration Next.js (Static Export, React Compiler)
+├── tsconfig.json           # Alias de chemins (@/*) & configuration TypeScript
+└── README.md               # Documentation du projet
 ```
 
-- Le flag --no-app signifie que le projet ne contiendra pas le dossier classique app/.
-À la place, Next.js  génère un dossier pages/ pour gérer les routes.
+---
 
-- Après l’exécution de la commande, plusieurs questions apparaissent.
-On peut répondre Y ou N selon les préférences du projet.
+## 🚀 Démarrage Rapide
 
-- Une fois le projet créé, nous avons nettoyé la structure en vidant certains fichiers comme global.css et index.tsx, puis en créant les dossiers nécessaires.
+### Prérequis
+- **Node.js** v18+ 
+- **npm** ou **yarn** / **pnpm**
 
-## 🔥 Intégration de Firebase
-- Nous avons créé un compte Firebase, puis une application web.
-Firebase fournit ensuite des commandes à exécuter dans le projet pour l’initialisation.
+### Installation
 
-- Avant le déploiement, nous avons configuré Next.js  pour générer un dossier out/ contenant la version statique du site (HTML, CSS, JS).
+```bash
+# 1. Cloner le projet
+git clone https://github.com/Heritier205/Coders-Monkey.git
+cd Coders-Monkey
 
-    Dans next.config.ts :
-    ```ts
-    output: "export" // génère automatiquement le dossier "out"
-    ```
+# 2. Installer les dépendances
+npm install
 
-- Ensuite, nous avons modifié le script build dans package.json pour déployer automatiquement sur Firebase après le build :
+# 3. Lancer le serveur de développement
+npm run dev
+```
 
-    ```json
-    "build": "next build && firebase deploy"
-    ```
-- Le projet a été poussé régulièrement sur GitHub et GitLab. Première expérience avec GitLab — très similaire à GitHub.
+Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur pour visualiser le site.
 
-## 🎨 Introduction au Design System
-Nous sommes ensuite passés au développement du Design System, qui consiste à créer les composants fondamentaux du projet, comme les typographies (Typography.tsx), les boutons, etc.
+### Build & Déploiement
 
-- C’est à ce moment que j’ai découvert les interfaces et les types en TypeScript.
+```bash
+# Générer l'export statique (dossier out/)
+npm run build
 
-- J’ai également découvert la librairie clsx, qui permet de gérer les classes CSS de manière dynamique et flexible.
-Ma curiosité m’a poussé à explorer des variantes comme cn et twMerge.
-
-    Installation :
-
-    ```bash
-    npm i clsx
-    ```
-
-## 📚 Surcharge des classes Tailwind
-
-J'étais étonné quand j'ai découvert que les classes Tailwind pouvaient être surchargées par l'utilisateur. 
-C'était en fait mon gros souci avec Tailwind car je ne savais pas qu'un tel truc était possible. 
-Du coup j'ai découvert comment lire la doc de Tailwind pour faire les autres surcharges dans le futur.
-
-- **Si j'ai un conseil à donner** : C'est bien et plus rapide de demander certaines choses à l'IA mais parfois il est préférable de lire la documentation de l'outil, surtout quand c'est un outil qui évolue.
-
-    > Dans mon cas, le tutoriel utilise la `V3` de `Tailwind` alors que actuellement on est sur la `V4` et carrément beaucoup de choses ont changé ce qui m'a fait perdre un peu de temps avec Copilot jusqu'à ce que je ne décide d'aller plutôt lire la docs de Tailwind `4.x.x` (en tout cas je m'en suis sorti) 
-
-- On a continué après les Typography par les types de boutons du système à savoir les boutons avec du `texte simple`, `icon` puis `texte et icon` avec chacun ses variants propres.
-    
-    > Cette partie nous a fait découvrir la librairie `react-icons` installée avec la commande :
-    ```bash 
-    npm i react-icons
-    ```
-    Bien sûr il faut visiter le site pour voir le nom des divers icons.
-
-## 🧭 Création de la barre de navigation
-
-Une fois tout cela fait, on est passé à la création de notre barre de navigation qui permettra à l'utilisateur de naviguer sur les différentes pages du site facilement.
-
-- Dans cette partie, j'ai découvert comment passer par un moyen plus facile grâce à React pour créer les liens qui restent dans la barre de navigation. Car il ne suffit pas juste d'avoir des liens mais faut aussi qu'ils soient dynamiques pour indiquer à l'utilisateur sur quelle page il se trouve en donnant un petit style au lien correspondant à la page actuelle. Cela nous a poussé à créer un nouvel objet de lien avec de la logique.
-
-    > Nous avions donc découvert cet objet de React qui s'appelle `useRouter` qui permet de trouver des informations concernant la page active comme par exemple le chemin à travers `router.pathname`. Du coup on fait la comparaison entre l'objet link de navbar pour voir si les deux URL sont la même afin d'appliquer le style.
-    
-    > Nous avons dû ajouter encore une modification à notre `global.css` de telle sorte que tous les liens ou objets qui seront classés `animate` aient un temps de transition définis :
-    ```css
-    .animate, a, a:hover, Button {
-        transition: all 0.3s ease-in-out;
-    }
-    ``` 
-    
-    > Là on a appris aussi que c'était bien de passer nos classes directement au niveau de la propriété CSS car au moment de définir que tous les liens du système changent de couleur au hover, on avait besoin de reprendre le code couleur primary de tout notre système mais on a vu que non ! On peut juste mettre dans le CSS comme cela :
-    ```css
-    a:hover {
-        @apply text-primary; /* pour appliquer directement une classe */
-    }
-    ``` 
-
-## 🦶 Implémentation du footer
-
-Ici on n'a pas fait grand chose que d'utiliser les objets préconçus comme liens et Typo pour le footer. Mais Attention !! C'est ici que nous avons fait plus de logique jusqu'à là :
-
-- Nous avons découvert comment on peut typer les éléments afin d'éviter les valeurs arbitraires dans le système et le fait de se répéter, et du coup faciliter la maintenabilité de notre code.
-
-- Nous avons découvert comment boucler (`mapping`) sur les listes de données pour éviter évidemment de se répéter.
-
-    > Avec cette histoire de mapping on a découvert la bibliothèque `uuidv4` qui permet de donner une `key` unique auto-générée à nos objets créés par les mappings car sans les keys React nous engueule.
-    
-    > Ici on a vu comment la comparaison de string arbitraire nous causerait des erreurs et comment les éviter en typant bien sur nos expressions ou valeurs ayant trait à des mots dans le dossier `lib` comme pour les types de `liens`.
+# Déployer sur Firebase Hosting (nécessite Firebase CLI)
+npx firebase deploy
+```
 
 ---
 
-> On continue l'aventure ...
+## 🐒 Journal de Bord & Apprentissages Techniques
+
+### 1. Initialisation & Structure Next.js
+- Création avec `create-next-app` sans le répertoire `app/` pour maîtriser le routing par pages (`pages/`).
+- Configuration de l'export statique dans `next.config.ts` via `output: "export"`.
+
+### 2. Intégration de Firebase & CI/CD
+- Association du projet à Firebase Hosting et automatisation du build avec la commande : `"build": "next build && firebase deploy"`.
+
+### 3. Conception du Design System & TypeScript
+- Implémentation de composants atoms sous `src/ui/design-system/`.
+- Gestion des classes CSS conditionnelles et dynamiques avec la librairie `clsx`.
+- Typage strict des props avec interfaces TypeScript (`IconProps`, `AppLinks`, `LinkType`).
+
+### 4. Maîtrise de Tailwind CSS v4
+- Prise en main des nouveautés de Tailwind v4 (`@import "tailwindcss";` et bloc `@theme`).
+- Apprentissage des surcharges CSS et de l'intégration directe des classes dans `globals.css` avec `@apply`.
+
+### 5. Navigation Dynamique & Active Links
+- Utilisation du hook `useRouter` de Next.js (`router.pathname`) pour détecter la route active et surligner dynamiquement l'élément de menu correspondant via un composant wrapper `<ActiveLink />`.
+
+### 6. Rendu Réactif & Bonnes Pratiques React
+- Remplacement des identifiants générés dynamiquement par des clés stables pour le rendu des tableaux (`.map(...)`), améliorant ainsi les performances de réconciliation du DOM de React.
+
+---
+
+## 👤 Auteur & Crédits
+
+- **Développeur** : [Héritier](https://github.com/Heritier205)
+- **Tutoriel & Inspiration** : Arnaud Desportes - *Remote Monkey SASU*

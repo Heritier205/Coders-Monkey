@@ -1,0 +1,161 @@
+import { IconProps } from "@/types/iconProps";
+import clsx from "clsx";
+import { Spinner } from "../spinner/spinner";
+import { LinkType, LinkTypes } from "@/lib/link-type";
+import Link from "next/link";
+
+interface Props {
+  size?: "small" | "medium" | "large";
+  variant?: "accent" | "secondary" | "outline" | "disabled" | "ico";
+  icon?: IconProps;
+  iconTheme?: "accent" | "secondary" | "gray";
+  iconPosition?: "left" | "right";
+  disabled?: boolean;
+  isLoading?: boolean;
+  children?: React.ReactNode;
+  baseUrl?: string;
+  linkType?: LinkType;
+  action?: () => void;
+}
+
+export const Button = ({
+  size = "medium",
+  variant = "accent",
+  icon,
+  iconTheme = "accent",
+  iconPosition = "right",
+  disabled,
+  isLoading,
+  children,
+  baseUrl,
+  linkType = "internal",
+  action = () => {},
+}: Props) => {
+  let variantStyle = "";
+  let sizeStyle = "";
+  let iconSize = 0;
+
+  switch (variant) {
+    case "accent":
+      variantStyle = "bg-primary hover:bg-primary-400 text-white rounded transition-colors duration-200";
+      break;
+    case "secondary":
+      variantStyle =
+        "bg-primary-200 hover:bg-primary-300/50 text-primary rounded transition-colors duration-200";
+      break;
+    case "outline":
+      variantStyle =
+        "bg-white hover:bg-gray-400/50 border border-gray-500 text-gray-900 rounded transition-colors duration-200";
+      break;
+    case "disabled":
+      variantStyle =
+        "bg-gray-400 border border-gray-500 text-gray-600 rounded cursor-not-allowed";
+      break;
+    case "ico":
+      if (iconTheme === "accent") {
+        variantStyle =
+          "bg-primary hover:bg-primary-400 text-white rounded-full transition-colors duration-200";
+      }
+      if (iconTheme === "secondary") {
+        variantStyle =
+          "bg-primary-200 hover:bg-primary-300/50 text-primary rounded-full transition-colors duration-200";
+      }
+      if (iconTheme === "gray") {
+        variantStyle = "bg-gray-800 hover:bg-gray-600 text-white rounded-full transition-colors duration-200";
+      }
+      break;
+  }
+
+  switch (size) {
+    case "small":
+      sizeStyle = `text-caption3 font-medium ${
+        icon && variant === "ico"
+          ? "flex items-center justify-center w-[40px] h-[40px]"
+          : "px-[14px] py-[10px]"
+      }`;
+      iconSize = 18;
+      break;
+    case "medium":
+      sizeStyle = `text-caption2 font-medium ${
+        icon && variant === "ico"
+          ? "flex items-center justify-center w-[50px] h-[50px]"
+          : "px-[18px] py-[15px]"
+      }`;
+      iconSize = 20;
+      break;
+    case "large":
+      sizeStyle = `text-caption1 font-medium ${
+        icon && variant === "ico"
+          ? "flex items-center justify-center w-[60px] h-[60px]"
+          : "px-[22px] py-[18px]"
+      }`;
+      iconSize = 24;
+      break;
+  }
+
+  const handleClick = () => {
+    if (action) {
+      action();
+    }
+  };
+
+  const buttonContent = (
+    <>
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Spinner
+            size="small"
+            variant={
+              variant === "accent" ||
+              (variant === "ico" && ["accent", "gray"].includes(iconTheme))
+                ? "white"
+                : "primary"
+            }
+          />
+        </div>
+      )}
+      <div className={clsx(isLoading && "invisible")}>
+        {icon && variant === "ico" ? (
+          <icon.icon size={iconSize} />
+        ) : (
+          <div className={clsx(icon && iconPosition && "flex gap-2 items-center")}>
+            {icon && iconPosition === "left" && <icon.icon size={iconSize} />}
+            {children}
+            {icon && iconPosition === "right" && <icon.icon size={iconSize} />}
+          </div>
+        )}
+      </div>
+    </>
+  );
+
+  const buttonElement = (
+    <button
+      type="button"
+      className={clsx(
+        variantStyle,
+        sizeStyle,
+        isLoading && "cursor-wait",
+        "relative cursor-pointer"
+      )}
+      onClick={handleClick}
+      disabled={disabled || isLoading}
+    >
+      {buttonContent}
+    </button>
+  );
+
+  if (baseUrl) {
+    if (linkType === LinkTypes.EXTERNAL) {
+      return (
+        <a href={baseUrl} target="_blank" rel="noreferrer">
+          {buttonElement}
+        </a>
+      );
+    } else {
+      return <Link href={baseUrl}>{buttonElement}</Link>;
+    }
+  }
+
+  return buttonElement;
+};
+

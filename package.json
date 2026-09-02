@@ -1,8 +1,34 @@
 {
+  "name": "coders-monkeys",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "deploy": "next build && npx -y firebase-tools@latest deploy",
+    "start": "next start",
+    "lint": "eslint"
+  },
   "dependencies": {
-    "uuidv4": "^6.2.13"
+    "clean": "^4.0.2",
+    "clsx": "^2.1.1",
+    "firebase": "^12.7.0",
+    "next": "16.1.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-icons": "^5.5.0",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
-    "@types/uuid": "^10.0.0"
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
+
