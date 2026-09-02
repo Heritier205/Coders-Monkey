@@ -36,8 +36,9 @@ export const Navigation = ({}: Props) => {
             <ActiveLink href="/">Accueil</ActiveLink>
             <ActiveLink href="/design-system">Design system</ActiveLink>
             <ActiveLink href="/#apprentissages">Apprentissages</ActiveLink>
-            <ActiveLink href="/projets">Projets</ActiveLink>
-            <ActiveLink href="/formation">Formations</ActiveLink>
+            <a href="https://youtube.com/@remotemonkey" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
+              Tutoriel YouTube
+            </a>
           </Typography>
 
           <div className="flex items-center gap-2">

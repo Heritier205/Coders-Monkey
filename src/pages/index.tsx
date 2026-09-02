@@ -9,9 +9,10 @@ import {
   RiCodeSSlashLine,
   RiCompass3Line,
   RiDownloadCloud2Line,
+  RiExternalLinkLine,
   RiFlashlightLine,
-  RiGithubFill,
-  RiRocketLine,
+  RiGraduationCapLine,
+  RiYoutubeFill,
   RiShieldCheckLine,
 } from "react-icons/ri";
 
@@ -19,27 +20,34 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="Coders Monkeys - Communauté & Design System React Next.js"
-        description="Plateforme web complète développée avec Next.js 16, TypeScript et Tailwind CSS v4 pour pratiquer le routing, le styling et le design system."
+        title="Coders Monkeys - Projet Tutoriel Next.js, TypeScript & Tailwind"
+        description="Application web complète développée dans le cadre de la formation Coders Monkeys (Remote Monkey par Arnaud Desportes) pour maîtriser Next.js, le routing, le styling et TypeScript."
       />
       <Navigation />
 
       <main className="min-h-screen bg-gradient-to-b from-white via-primary-200/20 to-white">
-        {/* HERO SECTION */}
+        {/* TUTORIAL BADGE & HERO SECTION */}
         <section className="py-20 border-b border-gray-400/50">
           <Container className="flex flex-col items-center text-center space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-200 text-primary border border-primary-300 text-sm font-medium animate-pulse">
-              <RiRocketLine className="w-4 h-4" />
-              <span>Bienvenue sur Coders Monkeys</span>
-            </div>
+            
+            {/* TUTORIAL ANNOUNCEMENT BADGE */}
+            <a
+              href="https://youtube.com/@remotemonkey"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-200 text-primary border border-primary-300 text-sm font-medium hover:bg-primary-300/40 transition-colors shadow-sm"
+            >
+              <RiGraduationCapLine className="w-5 h-5 text-primary" />
+              <span>Projet réalisé d'après le tutoriel <strong>Coders Monkeys</strong> par Arnaud Desportes</span>
+              <RiExternalLinkLine className="w-4 h-4 text-primary/70" />
+            </a>
 
             <div className="max-w-4xl space-y-4">
               <Typography variant="display" component="h1" className="text-gray leading-tight">
-                Développe tes compétences React & Next.js avec des projets concrets
+                Mise en pratique Next.js, TypeScript & Design System
               </Typography>
               <Typography variant="lead" theme="gray" className="max-w-2xl mx-auto">
-                Une application web moderne intégrant un <span className="text-primary font-semibold">Design System sur-mesure</span>, 
-                du typage strict avec TypeScript et des composants réutilisables haut de gamme.
+                Application concrète conçue pour pratiquer le routing dynamique Next.js, le typage strict TypeScript et la création d'un <span className="text-primary font-semibold">UI Design System réutilisable</span>.
               </Typography>
             </div>
 
@@ -49,6 +57,9 @@ export default function Home() {
               </Button>
               <Button size="large" variant="secondary" baseUrl="#apprentissages" icon={{ icon: RiCodeSSlashLine }} iconPosition="left">
                 Voir mon Journal d'Apprentissages
+              </Button>
+              <Button size="large" variant="outline" baseUrl="https://youtube.com/@remotemonkey" linkType="external" icon={{ icon: RiYoutubeFill }} iconPosition="left">
+                Suivre le Tutoriel YouTube
               </Button>
             </div>
 
@@ -74,10 +85,34 @@ export default function Home() {
           </Container>
         </section>
 
-        {/* FEATURES / HIGHLIGHTS SECTION */}
+        {/* TUTORIAL ORIGIN BOX & FEATURES SECTION */}
         <section className="py-20 bg-white">
           <Container className="space-y-12">
-            <div className="text-center space-y-3 max-w-2xl mx-auto">
+            
+            {/* ORIGINE DU TUTORIEL CARD */}
+            <div className="p-8 bg-primary-200/30 rounded-3xl border border-primary-300 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+              <div className="space-y-3 max-w-2xl">
+                <div className="flex items-center gap-2 text-primary font-semibold text-sm">
+                  <RiGraduationCapLine size={20} />
+                  <span>Cadre de la formation</span>
+                </div>
+                <Typography variant="h2">Basé sur la formation Remote Monkey</Typography>
+                <Typography variant="body-base" theme="gray">
+                  Ce projet récapitule l'ensemble des notions abordées dans la série tutoriel <strong>Coders Monkeys</strong> dispensée par <strong>Arnaud Desportes</strong> : architecture de composants, typage des données, gestion du routing et surcharges Tailwind CSS.
+                </Typography>
+              </div>
+              <a
+                href="https://youtube.com/@remotemonkey"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-xl transition-colors shrink-0 shadow-sm text-sm"
+              >
+                <RiYoutubeFill size={20} />
+                <span>Accéder au Tutoriel YouTube</span>
+              </a>
+            </div>
+
+            <div className="text-center space-y-3 max-w-2xl mx-auto pt-6">
               <Typography variant="caption2" weight="medium" className="text-primary uppercase tracking-wider">
                 Architecture du projet
               </Typography>
