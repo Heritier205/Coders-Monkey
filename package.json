@@ -1,11 +1,10 @@
 {
-  "name": "coders-monkeys",
+  "name": "front-end",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "deploy": "next build && npx -y firebase-tools@latest deploy",
+    "build": "next build && firebase deploy",
     "start": "next start",
     "lint": "eslint"
   },
@@ -31,4 +30,3 @@
     "typescript": "^5"
   }
 }
-
