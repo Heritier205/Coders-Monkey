@@ -46,7 +46,7 @@ codersMonkeys/
 
 ---
 
-## 🚀 Démarrage Rapide
+## ⚡ Démarrage Rapide
 
 ### Prérequis
 - **Node.js** v18+ 
